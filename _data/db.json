@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+            "id" : "1" ,
+            "title" : "Event Management System",
+            "description" : "A Freelance project for the mosque commitee in my city. They wanted to digitise the process of scheduling events.",
+            "liveUrl" : "https://bayan-portal-tntj.web.app/",
+            "githubRepo" : "https://github.com/mohammadanas51/Bayan-App-full"
+        },
+        {
+            "id" : "2" ,
+            "title" : "CommitPay",
+            "description" : "A SaaS product made for beginner developers looking for paid Open Source issues. Have 35 signups",
+            "liveUrl" : "https://commitpay-mvp.web.app/",
+            "githubRepo" : "https://github.com/mohammadanas51/CommitPay-MVP"
+            
+        }
+    ]
+}
