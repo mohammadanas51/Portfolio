@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectCard from "./projectCards";
-
 const Projects: React.FC = () => {
   return (
     <div className="mt-10 flex flex-col justify-center items-center">
@@ -26,6 +25,7 @@ const Projects: React.FC = () => {
           ]}
         />
       </div>
+      
     </div>
   );
 };

@@ -1,4 +1,9 @@
 import React from 'react'
+import { DiGithubBadge } from "react-icons/di";
+import { FaLinkedin } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { IoIosDocument } from "react-icons/io";
+
 
 function NavBar() {
   return (
@@ -7,10 +12,10 @@ function NavBar() {
 
         <div className="navContents">
             <ul className="flex justify-center items-center space-x-4 cursor-pointer">
-                <li>About</li>
-                <li>Projects</li>
-                <li>Contributions</li>
-                <li>Resume</li>
+                <li><DiGithubBadge /></li>
+                <li><FaLinkedin /></li>
+                <li><FaTwitter /></li>
+                <li><IoIosDocument /></li>
                 <li>Contact</li>
             </ul>
         </div>
