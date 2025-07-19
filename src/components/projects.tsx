@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
           link="https://bayan-portal-tntj.web.app/"
           descriptionPoints={[
             "A full-stack application built for a local mosque committee to manage religious events, speaker schedules, and announcements.",
-            "Developed using React, Node.js, Express, and MongoDB, the app allows admins to post bayans (Islamic talks) and view/manage the speakers",
+            "Developed using React, Node.js, Express, and MongoDB, the app allows admins to post bayans (Islamic talks) and view/manage the speakers and includes Role based access for admin and speakers",
             "Built as a pro bono project, it demonstrates my ability to deliver real-world solutions for local communities, working closely with stakeholders to understand their needs.",
           ]}
         />
