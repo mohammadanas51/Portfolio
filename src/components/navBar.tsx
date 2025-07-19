@@ -9,9 +9,16 @@ function NavBar() {
       <div className="navChild h-10 bg-white/10 backdrop-blur text-white flex justify-center items-center mt-5 w-110 sm:w-110 md:w-100 rounded">
         <div className="navContents">
           <ul className="flex justify-center items-center space-x-6 cursor-pointer">
+
             {/* GitHub */}
             <li className="relative group flex flex-col items-center">
-              <DiGithubBadge size={24} />
+              <a
+                href="https://github.com/mohammadanas51"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DiGithubBadge size={24} />
+              </a>
               <span className="absolute -top-6 text-xs bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
                 GitHub
               </span>
@@ -19,7 +26,13 @@ function NavBar() {
 
             {/* LinkedIn */}
             <li className="relative group flex flex-col items-center">
-              <FaLinkedin size={20} />
+              <a
+                href="https://www.linkedin.com/in/mohammadanas51"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin size={20} />
+              </a>
               <span className="absolute -top-6 text-xs bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
                 LinkedIn
               </span>
@@ -27,7 +40,13 @@ function NavBar() {
 
             {/* Twitter */}
             <li className="relative group flex flex-col items-center">
-              <FaTwitter size={20} />
+              <a
+                href="https://x.com/MA76305"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter size={20} />
+              </a>
               <span className="absolute -top-6 text-xs bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
                 Twitter
               </span>
@@ -35,12 +54,16 @@ function NavBar() {
 
             {/* Resume */}
             <li className="relative group flex flex-col items-center">
-              <IoIosDocument size={22} />
+              <a href="https://drive.google.com/file/d/1PXhTzrtkVTC9MpNYy01sL0SyFfWTYn6g/view" target="_blank"
+                rel="noopener noreferrer">
+                <IoIosDocument size={22} />
+              </a>
+              
               <span className="absolute -top-6 text-xs bg-black/80 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
                 Resume
               </span>
             </li>
-
+    
             {/* Contact */}
             <li className="relative group flex flex-col items-center">
               <span className="text-sm">Contact</span>
@@ -48,6 +71,7 @@ function NavBar() {
                 Contact
               </span>
             </li>
+
           </ul>
         </div>
       </div>
@@ -56,4 +80,3 @@ function NavBar() {
 }
 
 export default NavBar
-  
