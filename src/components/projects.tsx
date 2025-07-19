@@ -24,6 +24,15 @@ const Projects: React.FC = () => {
             "Built with React, the landing page stores the email IDs of signed-up users in MongoDB and is deployed using Firebase. It reflects my product-first mindset and ability to execute lean validation strategies.",
           ]}
         />
+        <ProjectCard
+          title="Even Management System"
+          link="https://bayan-portal-tntj.web.app/"
+          descriptionPoints={[
+            "A full-stack application built for a local mosque committee to manage religious events, speaker schedules, and announcements.",
+            "Developed using React, Node.js, Express, and MongoDB, the app allows admins to post bayans (Islamic talks) and view/manage the speakers",
+            "Built as a pro bono project, it demonstrates my ability to deliver real-world solutions for local communities, working closely with stakeholders to understand their needs.",
+          ]}
+        />
       </div>
       
     </div>
