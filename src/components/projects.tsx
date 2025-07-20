@@ -3,7 +3,7 @@ import ProjectCard from "./projectCards";
 const Projects: React.FC = () => {
   return (
     <div className="mt-10 flex flex-col justify-center items-center">
-      <p className="font-bold w-110 sm:w-90 px-5 md:w-100">Proof Of Work</p>
+      <p className="font-bold px-5 ">Proof Of Work</p>
       <div className="cards">
         <ProjectCard
           title="CommitPay"
