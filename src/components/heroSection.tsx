@@ -31,14 +31,14 @@ function HeroSection() {
           <ul className="mt-2 list-disc list-inside space-y-2 font-body">
             <li>
               A Full Stack Developer with expertise in ReactJS, NodeJS and
-              ExpressJS
+              ExpressJS.
             </li>
             <li>
               I use MySQL or MongoDB for data storage depending on the project
-              requirments
+              requirments.
             </li>
             <li>
-              I prefer using TypeScript to ensure no bugs come up in production
+              I prefer using TypeScript to ensure no bugs come up in production.
             </li>
           </ul>
         </div>
