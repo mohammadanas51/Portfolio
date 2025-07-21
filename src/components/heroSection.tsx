@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { JetBrains_Mono } from 'next/font/google';
-
+import {Space_Grotesk} from 'next/font/google' ;
 
 const jetBrains = JetBrains_Mono({
   subsets:["latin"],
@@ -10,15 +10,25 @@ const jetBrains = JetBrains_Mono({
   variable : "--font-jetBrains",
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets:["latin"],
+  weight : "400",
+  variable : "--font-spaceGrotesk",
+})
+
+
+
 function HeroSection() {
   return (
     <div className="mt-10 flex justify-center">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <div className="heroChild w-250 px-5 text-center">
-        {/* <p className={`font-bold ${jetBrains.variable} text-3xl`}>About Me</p> */}
-        <div className={`font-bold text-3xl ${jetBrains.variable} `}> About Me</div>
-        <div className="aboutMeMsg text-2xl">
-          <ul className="mt-2 list-disc list-inside space-y-2">
+      {/* <div className="heroChild w-250 px-5 text-center "> */}
+      <div className={`heroChild w-250 px-5 text-center ${jetBrains.variable}`}>
+        
+        <div className={`font-bold text-3xl font-heading `}> About Me</div>
+
+        <div className={`aboutMeMsg text-2xl ${spaceGrotesk.variable}`}>
+          <ul className="mt-2 list-disc list-inside space-y-2 font-body">
             <li>
               A Full Stack Developer with expertise in ReactJS, NodeJS and
               ExpressJS

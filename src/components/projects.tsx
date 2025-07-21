@@ -1,9 +1,26 @@
 import React from "react";
 import ProjectCard from "./projectCards";
+
+import { JetBrains_Mono } from 'next/font/google';
+import {Space_Grotesk} from 'next/font/google' ;
+
+const jetBrains = JetBrains_Mono({
+  subsets:["latin"],
+  weight : "400",
+  variable : "--font-jetBrains",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets:["latin"],
+  weight : "400",
+  variable : "--font-spaceGrotesk",
+})
+
+
 const Projects: React.FC = () => {
   return (
     <div className="mt-10 flex flex-col justify-center items-center">
-      <p className="font-bold px-5 text-3xl">Proof Of Work</p>
+      <p className={`font-bold px-5 text-3xl ${jetBrains.variable} font-heading`}>Proof Of Work</p>
       <div className="cards">
         <ProjectCard
           title="CommitPay"

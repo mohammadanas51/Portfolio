@@ -12,6 +12,8 @@
   --font-mono: var(--font-geist-mono);
   --font-main : var(--font-sourceCode);
   --font-heading : var(--font-jetBrains);
+  --font-family-heading: var(--font-jetBrains);
+  --font-body : var(--font-spaceGrotesk) ;
 }
 
 @media (prefers-color-scheme: dark) {
