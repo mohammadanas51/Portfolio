@@ -10,13 +10,6 @@ const jetBrains = JetBrains_Mono({
   variable : "--font-jetBrains",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets:["latin"],
-  weight : "400",
-  variable : "--font-spaceGrotesk",
-})
-
-
 const Projects: React.FC = () => {
   return (
     <div className="mt-10 flex flex-col justify-center items-center">
