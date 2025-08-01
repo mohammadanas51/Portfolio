@@ -30,9 +30,13 @@ function HeroSection() {
         <div className={`aboutMeMsg text-2xl ${spaceGrotesk.variable}`}>
           <ul className="mt-2 list-disc list-inside space-y-2 font-body">
             <li>
+              Open Source Contributor
+            </li>
+            <li>
               A Full Stack Developer with expertise in ReactJS, NodeJS and
               ExpressJS.
             </li>
+            
             <li>
               I use MySQL or MongoDB for data storage depending on the project
               requirments.
