@@ -24,11 +24,29 @@ function OpenSource() {
     <div className={`${jetBrains.variable} text-center mt-10`}>
       <div className={`font-bold text-3xl font-heading `}> Open Source Contributions</div>
       <div className="cards">
+
         <OpenSourceCard
-          title="freeCodeCamp"
-          link="https://github.com/freeCodeCamp/contribute/pull/743"
+          title="Prepnerdz"
+          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/63"
           descriptionPoints={[
-            "Added hover effects to the cards in the landing page.",
+            "Added Confirm Password input field to the Signup Page.",
+          ]}
+        />
+
+        <OpenSourceCard
+          title="Prepnerdz"
+          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/47"
+          descriptionPoints={[
+            "Redesigned the 404 Not Found Page.",
+          ]}
+        />
+
+
+        <OpenSourceCard
+          title="Prepnerdz"
+          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/42"
+          descriptionPoints={[
+            "Added a testimonial page to their platform.",
           ]}
         />
 
@@ -39,27 +57,15 @@ function OpenSource() {
             "Fixed the Slack icon's padding to make it consistent across pages.",
           ]}
         />
+
         <OpenSourceCard
-          title="Prepnerdz"
-          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/42"
+          title="freeCodeCamp"
+          link="https://github.com/freeCodeCamp/contribute/pull/743"
           descriptionPoints={[
-            "Added a testimonial page to their platform.",
+            "Added hover effects to the cards in the landing page.",
           ]}
         />
-        <OpenSourceCard
-          title="Prepnerdz"
-          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/47"
-          descriptionPoints={[
-            "Redesigned the 404 Not Found Page.",
-          ]}
-        />
-        <OpenSourceCard
-          title="Prepnerdz"
-          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/63"
-          descriptionPoints={[
-            "Added Confirm Password input field to the Signup Page.",
-          ]}
-        />
+
       </div>
     </div>
   );
