@@ -5,6 +5,7 @@ import ProjectCard from "./projectCards";
 
 import { JetBrains_Mono } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
+import OpenSourceCard from "./OpenSourceCards";
 
 const jetBrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ function OpenSource() {
     <div className={`${jetBrains.variable} text-center mt-10`}>
       <div className={`font-bold text-3xl font-heading `}> Open Source Contributions</div>
       <div className="cards">
-        <ProjectCard
+        <OpenSourceCard
           title="freeCodeCamp"
           link="https://github.com/freeCodeCamp/contribute/pull/743"
           descriptionPoints={[
@@ -31,28 +32,28 @@ function OpenSource() {
           ]}
         />
 
-        <ProjectCard
+        <OpenSourceCard
           title="Kestra-io"
           link="https://github.com/kestra-io/plugin-notifications/pull/243"
           descriptionPoints={[
             "Fixed the Slack icon's padding to make it consistent across pages.",
           ]}
         />
-        <ProjectCard
+        <OpenSourceCard
           title="Prepnerdz"
           link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/42"
           descriptionPoints={[
             "Added a testimonial page to their platform.",
           ]}
         />
-        <ProjectCard
+        <OpenSourceCard
           title="Prepnerdz"
           link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/47"
           descriptionPoints={[
             "Redesigned the 404 Not Found Page.",
           ]}
         />
-        <ProjectCard
+        <OpenSourceCard
           title="Prepnerdz"
           link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/63"
           descriptionPoints={[
