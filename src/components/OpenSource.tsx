@@ -27,6 +27,14 @@ function OpenSource() {
 
         <OpenSourceCard
           title="Prepnerdz"
+          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/95"
+          descriptionPoints={[
+            "Fixed a UI bug where the navbar was causing bad UX in mobile view.",
+          ]}
+        />
+
+        <OpenSourceCard
+          title="Prepnerdz"
           link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/63"
           descriptionPoints={[
             "Added Confirm Password input field to the Signup Page.",
