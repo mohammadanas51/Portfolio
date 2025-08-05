@@ -27,6 +27,13 @@ function OpenSource() {
 
         <OpenSourceCard
           title="Prepnerdz"
+          link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/96"
+          descriptionPoints={[
+            "Fixed a UI bug where the content behind the sidebar would become black",
+          ]}
+        />
+        <OpenSourceCard
+          title="Prepnerdz"
           link="https://github.com/Shubhashish-Chakraborty/prepnerdz/pull/95"
           descriptionPoints={[
             "Fixed a UI bug where the navbar was causing bad UX in mobile view.",
