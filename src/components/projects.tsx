@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
       <div className="cards">
         <ProjectCard
           title="CommitPay"
-          link="https://commitpay-mvp.web.app/"
+          link="https://commitpay.dev"
           descriptionPoints={[
             "A bootstrapped SaaS platform that helps open-source maintainers post paid beginner-friendly issues, making it easier for new developers to earn through real-world contributions.",
             "Launched the MVP using React, Firebase, and Firestore, and grew to 35+ signups with early adopter maintainers listing paid tasks — all within the first few weeks.",

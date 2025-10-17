@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 
 function HeroSection() {
   return (
-    <div className="mt-10 flex justify-center">
+    <div className="mt-10 flex justify-center ">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className={`heroChild w-250 px-5 text-center ${jetBrains.variable}`}>
         
