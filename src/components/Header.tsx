@@ -90,10 +90,13 @@ function Header() {
               border: "none",
               cursor: "pointer",
               color: "var(--muted)",
-              lineHeight: 0,
+              lineHeight: 1,
               padding: 0,
               position: "relative",
+              overflow: "visible",
               transition: "color 0.2s",
+              display: "flex",
+              alignItems: "center",
             }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#fff")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
@@ -103,17 +106,22 @@ function Header() {
               <span
                 style={{
                   position: "absolute",
-                  bottom: "-32px",
+                  bottom: "-36px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   fontSize: "0.7rem",
-                  padding: "3px 8px",
-                  borderRadius: "4px",
+                  fontWeight: 400,
+                  padding: "4px 10px",
+                  borderRadius: "6px",
                   whiteSpace: "nowrap",
-                  background: "var(--card-bg)",
-                  border: "1px solid var(--border)",
-                  color: "var(--fg)",
+                  background: "#111111",
+                  border: "1px solid #3f3f46",
+                  color: "#ffffff",
                   fontFamily: "var(--font-geist-mono)",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                  lineHeight: 1.4,
+                  letterSpacing: "0.01em",
+                  pointerEvents: "none",
                 }}
               >
                 copied!
