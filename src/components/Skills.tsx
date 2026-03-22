@@ -20,7 +20,6 @@ const skills = [
   { icon: SiMysql, label: "MySQL", color: "#4479A1" },
   { icon: SiFirebase, label: "Firebase", color: "#FFCA28" },
   { icon: SiTailwindcss, label: "Tailwind", color: "#06B6D4" },
-  // { icon: SiRedux, label: "Redux", color: "#764ABC" },
   { icon: SiGit, label: "Git", color: "#F05032" },
 ];
 
