@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FiGithub, FiExternalLink, FiChevronDown } from "react-icons/fi";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 interface ProjectCardProps {
   title: string;
@@ -15,19 +15,27 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, summary, descriptionPoints, githubUrl, liveUrl, tags = [] }: ProjectCardProps) {
   const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   return (
-    <div
+    <motion.div
+      whileHover={
+        reduce
+          ? undefined
+          : {
+              y: -3,
+              borderColor: "#52525b",
+              boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+            }
+      }
+      transition={{ type: "spring", stiffness: 380, damping: 28 }}
       style={{
         borderRadius: "8px",
         marginBottom: "10px",
         overflow: "hidden",
         background: "var(--card-bg)",
         border: "1px solid var(--border)",
-        transition: "border-color 0.2s",
       }}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "#52525b")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border)")}
     >
       {/* Header row — always visible, click to expand */}
       <div
@@ -172,7 +180,7 @@ function ProjectCard({ title, summary, descriptionPoints, githubUrl, liveUrl, ta
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

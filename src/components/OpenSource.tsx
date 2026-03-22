@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import OpenSourceCard from "./OpenSourceCards";
+import { fadeUpItemVariants, sectionRevealVariants, viewportOnce } from "@/lib/motion";
+import { useEntranceReady } from "@/lib/useEntranceReady";
 
 const contributions = [
   {
@@ -50,14 +52,27 @@ const contributions = [
 ];
 
 function OpenSource() {
+  const reduce = useReducedMotion();
+  const entranceReady = useEntranceReady();
+
+  const cardList = {
+    hidden: {},
+    show: {
+      transition: reduce ? { duration: 0 } : { staggerChildren: 0.06, delayChildren: 0.05 },
+    },
+  };
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+      variants={sectionRevealVariants(reduce)}
+      initial="hidden"
+      animate={entranceReady ? undefined : "hidden"}
+      whileInView={entranceReady ? "show" : undefined}
+      viewport={viewportOnce}
       style={{ padding: "40px 0", borderTop: "1px solid var(--border)" }}
     >
-      <p
+      <motion.p
+        variants={fadeUpItemVariants(reduce)}
         style={{
           fontSize: "0.7rem",
           fontWeight: 600,
@@ -69,13 +84,15 @@ function OpenSource() {
         }}
       >
         Open Source
-      </p>
+      </motion.p>
 
-      <div>
+      <motion.div variants={cardList}>
         {contributions.map((c) => (
-          <OpenSourceCard key={c.prUrl} {...c} />
+          <motion.div key={c.prUrl} variants={fadeUpItemVariants(reduce)}>
+            <OpenSourceCard {...c} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

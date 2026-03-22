@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FiGithub, FiChevronDown } from "react-icons/fi";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 interface OpenSourceCardProps {
   repo: string;
@@ -13,19 +13,27 @@ interface OpenSourceCardProps {
 
 function OpenSourceCard({ repo, prNumber, prUrl, description }: OpenSourceCardProps) {
   const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   return (
-    <div
+    <motion.div
+      whileHover={
+        reduce
+          ? undefined
+          : {
+              y: -2,
+              borderColor: "#52525b",
+              boxShadow: "0 10px 32px rgba(0,0,0,0.3)",
+            }
+      }
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
       style={{
         borderRadius: "8px",
         marginBottom: "10px",
         overflow: "hidden",
         background: "var(--card-bg)",
         border: "1px solid var(--border)",
-        transition: "border-color 0.2s",
       }}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "#52525b")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border)")}
     >
       {/* Header row */}
       <div
@@ -122,7 +130,7 @@ function OpenSourceCard({ repo, prNumber, prUrl, description }: OpenSourceCardPr
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
 

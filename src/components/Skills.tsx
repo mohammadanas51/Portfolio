@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { fadeUpItemVariants, sectionRevealVariants, viewportOnce } from "@/lib/motion";
+import { useEntranceReady } from "@/lib/useEntranceReady";
 import {
   SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiExpress,
   SiMongodb, SiMysql, SiFirebase, SiGit, SiTailwindcss, SiJavascript, SiRedux,
@@ -23,14 +25,27 @@ const skills = [
 ];
 
 function Skills() {
+  const reduce = useReducedMotion();
+  const entranceReady = useEntranceReady();
+
+  const chipList = {
+    hidden: {},
+    show: {
+      transition: reduce ? { duration: 0 } : { staggerChildren: 0.04, delayChildren: 0.08 },
+    },
+  };
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+      variants={sectionRevealVariants(reduce)}
+      initial="hidden"
+      animate={entranceReady ? undefined : "hidden"}
+      whileInView={entranceReady ? "show" : undefined}
+      viewport={viewportOnce}
       style={{ padding: "40px 0", borderTop: "1px solid var(--border)" }}
     >
-      <p
+      <motion.p
+        variants={fadeUpItemVariants(reduce)}
         style={{
           fontSize: "0.7rem",
           fontWeight: 600,
@@ -42,12 +57,28 @@ function Skills() {
         }}
       >
         Tech Stack
-      </p>
+      </motion.p>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+      <motion.div
+        variants={chipList}
+        style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
+      >
         {skills.map(({ icon: Icon, label, color }) => (
-          <span
+          <motion.span
             key={label}
+            variants={fadeUpItemVariants(reduce)}
+            whileHover={
+              reduce
+                ? undefined
+                : {
+                    scale: 1.05,
+                    y: -3,
+                    borderColor: "#71717a",
+                    color: "#fff",
+                  }
+            }
+            whileTap={reduce ? undefined : { scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 400, damping: 22 }}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -60,22 +91,20 @@ function Skills() {
               color: "var(--muted)",
               fontFamily: "var(--font-geist-mono)",
               cursor: "default",
-              transition: "border-color 0.2s, color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "#71717a";
-              (e.currentTarget as HTMLElement).style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-              (e.currentTarget as HTMLElement).style.color = "var(--muted)";
             }}
           >
-            <Icon size={12} style={{ color, flexShrink: 0 }} />
+            <motion.span
+              aria-hidden
+              whileHover={reduce ? undefined : { rotate: [0, -8, 8, 0] }}
+              transition={{ duration: 0.45 }}
+              style={{ display: "inline-flex", lineHeight: 0 }}
+            >
+              <Icon size={12} style={{ color, flexShrink: 0 }} />
+            </motion.span>
             {label}
-          </span>
+          </motion.span>
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

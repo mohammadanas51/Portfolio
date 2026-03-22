@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import ProjectCard from "./projectCards";
+import { fadeUpItemVariants, sectionRevealVariants, viewportOnce } from "@/lib/motion";
+import { useEntranceReady } from "@/lib/useEntranceReady";
 
 const projects = [
   {
@@ -43,14 +45,27 @@ const projects = [
 ];
 
 function Projects() {
+  const reduce = useReducedMotion();
+  const entranceReady = useEntranceReady();
+
+  const cardList = {
+    hidden: {},
+    show: {
+      transition: reduce ? { duration: 0 } : { staggerChildren: 0.12, delayChildren: 0.06 },
+    },
+  };
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+      variants={sectionRevealVariants(reduce)}
+      initial="hidden"
+      animate={entranceReady ? undefined : "hidden"}
+      whileInView={entranceReady ? "show" : undefined}
+      viewport={viewportOnce}
       style={{ padding: "40px 0", borderTop: "1px solid var(--border)" }}
     >
-      <p
+      <motion.p
+        variants={fadeUpItemVariants(reduce)}
         style={{
           fontSize: "0.7rem",
           fontWeight: 600,
@@ -62,13 +77,15 @@ function Projects() {
         }}
       >
         Projects
-      </p>
+      </motion.p>
 
-      <div>
+      <motion.div variants={cardList}>
         {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+          <motion.div key={project.title} variants={fadeUpItemVariants(reduce)}>
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

@@ -34,3 +34,39 @@ body {
 
 /* Anchor defaults */
 a { color: inherit; text-decoration: none; }
+
+/* Initial page loader — determinate bar (width driven by JS, left → right) */
+.portfolio-loader__linear-track {
+  width: min(320px, 82vw);
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--border);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.portfolio-loader__linear-fill--determinate {
+  height: 100%;
+  width: 0%;
+  min-width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #9a3412, var(--accent), #fb923c);
+  box-shadow: 0 0 12px rgba(234, 88, 12, 0.35);
+  transform-origin: left center;
+  will-change: width;
+}
+
+[id="portfolio-page-loader"] {
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[id="portfolio-page-loader"].portfolio-page-loader--exiting {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [id="portfolio-page-loader"] {
+    transition-duration: 0.12s;
+  }
+}

@@ -1,23 +1,57 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { fadeUpItemVariants } from "@/lib/motion";
+import { useEntranceReady } from "@/lib/useEntranceReady";
 
 const Highlight = ({ children }: { children: React.ReactNode }) => (
   <span style={{ color: "var(--accent)", fontWeight: 500 }}>{children}</span>
 );
 
 function Hero() {
+  const reduce = useReducedMotion();
+  const entranceReady = useEntranceReady();
+
+  const heroContainer = {
+    hidden: {},
+    show: {
+      transition: reduce
+        ? { duration: 0 }
+        : { staggerChildren: 0.09, delayChildren: 0.04 },
+    },
+  };
+
+  const nameVariants = {
+    hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : 28 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: reduce
+        ? { duration: 0 }
+        : { type: "spring" as const, stiffness: 380, damping: 28, mass: 0.8 },
+    },
+  };
+
+  const bioGroup = {
+    hidden: {},
+    show: {
+      transition: reduce ? { duration: 0 } : { staggerChildren: 0.08 },
+    },
+  };
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      variants={heroContainer}
+      initial="hidden"
+      animate={entranceReady ? "show" : "hidden"}
       style={{ paddingTop: "64px", paddingBottom: "48px" }}
     >
       {/* Status badge */}
-      <div style={{ marginBottom: "24px" }}>
-        <span
+      <motion.div variants={fadeUpItemVariants(reduce)} style={{ marginBottom: "24px" }}>
+        <motion.span
+          whileHover={reduce ? undefined : { scale: 1.02, borderColor: "#52525b" }}
+          transition={{ type: "spring", stiffness: 400, damping: 25 }}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -31,22 +65,29 @@ function Hero() {
             fontFamily: "var(--font-geist-mono)",
           }}
         >
-          <span
+          <motion.span
+            animate={
+              reduce || !entranceReady
+                ? undefined
+                : { scale: [1, 1.15, 1], opacity: [1, 0.85, 1] }
+            }
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             style={{
               width: "6px",
               height: "6px",
               borderRadius: "50%",
               background: "#22c55e",
               display: "inline-block",
-              animation: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+              boxShadow: "0 0 10px rgba(34, 197, 94, 0.55)",
             }}
           />
           Open to work · Remote-first
-        </span>
-      </div>
+        </motion.span>
+      </motion.div>
 
       {/* Name */}
-      <h1
+      <motion.h1
+        variants={nameVariants}
         style={{
           fontSize: "2.5rem",
           fontWeight: 700,
@@ -57,17 +98,17 @@ function Hero() {
         }}
       >
         Mohammad Anas
-      </h1>
+      </motion.h1>
 
       {/* Bio */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        <p style={{ color: "var(--muted)", fontSize: "1.05rem", lineHeight: 1.75 }}>
+      <motion.div variants={bioGroup} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <motion.p variants={fadeUpItemVariants(reduce)} style={{ color: "var(--muted)", fontSize: "1.05rem", lineHeight: 1.75 }}>
           I&apos;m a <Highlight>full-stack developer</Highlight> based in India, building web
           applications that solve <Highlight>real-world problems</Highlight>. I work primarily
           with the <Highlight>MERN stack</Highlight> — React, Node.js, Express, and MongoDB —
           and reach for TypeScript whenever I want to ship with confidence.
-        </p>
-        <p style={{ color: "var(--muted)", fontSize: "1.05rem", lineHeight: 1.75 }}>
+        </motion.p>
+        <motion.p variants={fadeUpItemVariants(reduce)} style={{ color: "var(--muted)", fontSize: "1.05rem", lineHeight: 1.75 }}>
           I&apos;m the founder of{" "}
           <a
             href="https://commitpay.dev"
@@ -80,17 +121,18 @@ function Hero() {
           , a bootstrapped SaaS platform connecting open-source maintainers with beginner
           developers through <Highlight>paid issues</Highlight>. Grew to{" "}
           <Highlight>35+ signups</Highlight> in the first few weeks.
-        </p>
-        <p style={{ color: "var(--muted)", fontSize: "1.05rem", lineHeight: 1.75 }}>
+        </motion.p>
+        <motion.p variants={fadeUpItemVariants(reduce)} style={{ color: "var(--muted)", fontSize: "1.05rem", lineHeight: 1.75 }}>
           Outside of building products, I actively contribute to{" "}
           <Highlight>open source</Highlight> — ranging from UI fixes to new features across
           popular repositories. I believe good software is built iteratively, with empathy for
           the user at every step.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Quick info row */}
-      <div
+      <motion.div
+        variants={fadeUpItemVariants(reduce)}
         style={{
           marginTop: "32px",
           display: "flex",
@@ -110,15 +152,15 @@ function Hero() {
           India
         </span>
         <span style={{ color: "var(--border)" }}>·</span>
-        <a
+        <motion.a
           href="mailto:mohammad.anas51@hotmail.com"
-          style={{ color: "var(--muted)", transition: "color 0.2s" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#fff")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
+          whileHover={reduce ? undefined : { color: "#fff" }}
+          transition={{ duration: 0.2 }}
+          style={{ color: "var(--muted)" }}
         >
           mohammad.anas51@hotmail.com
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </motion.section>
   );
 }
