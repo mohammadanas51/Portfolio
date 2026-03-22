@@ -59,7 +59,7 @@ function OpenSource() {
     >
       <p
         style={{
-          fontSize: "0.7rem",
+          fontSize: "1rem",
           fontWeight: 600,
           textTransform: "uppercase",
           letterSpacing: "0.12em",

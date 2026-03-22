@@ -54,7 +54,7 @@ function Header() {
             color: "var(--fg)",
           }}
         >
-          anas.dev
+          mdanas.me
         </span>
 
         {/* Social Links */}

@@ -18,7 +18,6 @@ const skills = [
   { icon: SiMysql, label: "MySQL", color: "#4479A1" },
   { icon: SiFirebase, label: "Firebase", color: "#FFCA28" },
   { icon: SiTailwindcss, label: "Tailwind", color: "#06B6D4" },
-  { icon: SiRedux, label: "Redux", color: "#764ABC" },
   { icon: SiGit, label: "Git", color: "#F05032" },
 ];
 
@@ -32,7 +31,7 @@ function Skills() {
     >
       <p
         style={{
-          fontSize: "0.7rem",
+          fontSize: "1rem",
           fontWeight: 600,
           textTransform: "uppercase",
           letterSpacing: "0.12em",
