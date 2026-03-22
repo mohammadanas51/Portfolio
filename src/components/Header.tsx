@@ -26,6 +26,10 @@ function Header() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  };
+
   return (
     <header
       style={{
@@ -49,7 +53,10 @@ function Header() {
         }}
       >
         {/* Name / Logo */}
-        <motion.span
+        <motion.button
+          type="button"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
           initial={reduce ? false : { opacity: 0, x: -12 }}
           animate={
             entranceReady ? { opacity: 1, x: 0 } : { opacity: 0, x: reduce ? 0 : -12 }
@@ -61,10 +68,15 @@ function Header() {
             fontWeight: 600,
             letterSpacing: "-0.01em",
             color: "var(--fg)",
+            background: "none",
+            border: "none",
+            padding: 0,
+            cursor: "pointer",
+            textAlign: "left",
           }}
         >
-          anas.dev
-        </motion.span>
+          mdanas.me
+        </motion.button>
 
         {/* Social Links */}
         <nav style={{ display: "flex", alignItems: "center", gap: "20px" }}>
