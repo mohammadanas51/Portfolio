@@ -1,70 +1,129 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { JetBrains_Mono } from 'next/font/google';
-import {Space_Grotesk} from 'next/font/google' ;
 
-const jetBrains = JetBrains_Mono({
-  subsets:["latin"],
-  weight : "400",
-  variable : "--font-jetBrains",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets:["latin"],
-  weight : "400",
-  variable : "--font-spaceGrotesk",
-})
+import React, { useState } from "react";
+import { FiGithub, FiChevronDown } from "react-icons/fi";
+import { motion, AnimatePresence } from "motion/react";
 
 interface OpenSourceCardProps {
-  title: string;
-  link: string;
-  descriptionPoints: string[];
+  repo: string;
+  prNumber?: string;
+  prUrl: string;
+  description: string;
 }
 
-const OpenSourceCard : React.FC<OpenSourceCardProps> = ({
-  title,
-  link,
-  descriptionPoints,
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="max-w-[90%] sm:max-w-3xl mx-auto mt-4 sm:mt-6 px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 border-2 border-blue-500 rounded-xl shadow-md  duration-300 hover:shadow-lg"
-    >
-      <div className={`flex justify-around items-center ${jetBrains.variable}`}>
-        <h1 className="text-2xl font-semibold text-white font-heading">
-          {title}
-        </h1>
-        <a
-          href={link}
-          className="text-emerald-500 underline text-2xl transition-colors hover:text-emerald-600 focus:text-emerald-700 font-heading"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabIndex={0}
-        >
-          View PR
-        </a>
-      </div>
-      <div className={`${spaceGrotesk.variable}`}>
-        <p className="mt-2 text-xl text-white font-body">
-        Description
-      </p>  
-      </div>
-      
-      <div className={`mt-2 ${spaceGrotesk.variable}`}>
-        <ul className="list-disc list-inside space-y-1 text-base text-white font-body">
-          {descriptionPoints.map((point, index) => (
-            <li key={index} className="break-words">
-              {point}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  );
-};
+function OpenSourceCard({ repo, prNumber, prUrl, description }: OpenSourceCardProps) {
+  const [open, setOpen] = useState(false);
 
-export default OpenSourceCard 
+  return (
+    <div
+      style={{
+        borderRadius: "8px",
+        marginBottom: "10px",
+        overflow: "hidden",
+        background: "var(--card-bg)",
+        border: "1px solid var(--border)",
+        transition: "border-color 0.2s",
+      }}
+      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "#52525b")}
+      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border)")}
+    >
+      {/* Header row */}
+      <div
+        onClick={() => setOpen((p) => !p)}
+        style={{
+          padding: "12px 16px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "16px",
+          cursor: "pointer",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", flex: 1, minWidth: 0 }}>
+          <FiGithub size={13} style={{ color: "var(--muted)", flexShrink: 0 }} />
+          <span
+            style={{
+              fontSize: "0.85rem",
+              fontWeight: 500,
+              color: "var(--fg)",
+              fontFamily: "var(--font-geist-mono)",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {repo}
+          </span>
+          {prNumber && (
+            <span
+              style={{
+                fontSize: "0.65rem",
+                padding: "2px 6px",
+                borderRadius: "4px",
+                flexShrink: 0,
+                background: "#1a1a1a",
+                border: "1px solid var(--border)",
+                color: "var(--accent)",
+                fontFamily: "var(--font-geist-mono)",
+              }}
+            >
+              #{prNumber}
+            </span>
+          )}
+        </div>
+
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ color: "var(--muted)", flexShrink: 0, lineHeight: 0 }}
+        >
+          <FiChevronDown size={15} />
+        </motion.div>
+      </div>
+
+      {/* Expandable body */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+            style={{ overflow: "hidden" }}
+          >
+            <div style={{ padding: "12px 16px", borderTop: "1px solid var(--border)" }}>
+              <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.65, marginBottom: "12px" }}>
+                <span style={{ color: "var(--accent)", marginRight: "6px" }}>›</span>
+                {description}
+              </p>
+              <a
+                href={prUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "5px",
+                  fontSize: "0.75rem",
+                  color: "var(--muted)",
+                  fontFamily: "var(--font-geist-mono)",
+                  transition: "color 0.2s",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#fff")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
+              >
+                <FiGithub size={12} />
+                View Pull Request
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export default OpenSourceCard;
