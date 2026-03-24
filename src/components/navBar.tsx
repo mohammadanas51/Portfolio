@@ -64,7 +64,7 @@ function NavBar() {
             {/* Resume */}
             <li className="relative group flex flex-col items-center">
               <a
-                href="https://drive.google.com/file/d/1PXhTzrtkVTC9MpNYy01sL0SyFfWTYn6g/view"
+                href="https://drive.google.com/file/d/1s6dPOaF2BRl5dxiHZNdLpxxNKabpf116/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -85,7 +85,7 @@ function Header() {
             { href: "https://www.linkedin.com/in/mohammadanas51", label: "LinkedIn", icon: <FaLinkedin size={17} /> },
             { href: "https://x.com/MA76305", label: "Twitter", icon: <FaTwitter size={17} /> },
             {
-              href: "https://drive.google.com/file/d/1PXhTzrtkVTC9MpNYy01sL0SyFfWTYn6g/view",
+              href: "https://drive.google.com/file/d/1s6dPOaF2BRl5dxiHZNdLpxxNKabpf116/view?usp=sharing",
               label: "Resume",
               icon: <IoIosDocument size={19} />,
             },
