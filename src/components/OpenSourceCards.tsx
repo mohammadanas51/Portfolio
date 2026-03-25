@@ -69,10 +69,11 @@ function OpenSourceCard({ repo, prNumber, prUrl, description }: OpenSourceCardPr
                 padding: "2px 6px",
                 borderRadius: "4px",
                 flexShrink: 0,
-                background: "#1a1a1a",
+                background: "var(--tag-bg)",
                 border: "1px solid var(--border)",
                 color: "var(--accent)",
                 fontFamily: "var(--font-geist-mono)",
+                transition: "background 220ms ease, color 220ms ease, border-color 220ms ease",
               }}
             >
               #{prNumber}

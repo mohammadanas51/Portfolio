@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { useEntranceReady } from "@/lib/useEntranceReady";
+import ThemeToggle from "@/components/ThemeToggle";
 import { DiGithubBadge } from "react-icons/di";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { IoIosDocument } from "react-icons/io";
@@ -36,7 +37,7 @@ function Header() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: scrolled ? "rgba(0,0,0,0.85)" : "transparent",
+        background: scrolled ? "var(--header-scrolled-bg)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
         transition: "background 0.3s, border-color 0.3s",
@@ -171,6 +172,8 @@ function Header() {
               )}
             </AnimatePresence>
           </motion.button>
+
+          <ThemeToggle />
         </nav>
       </div>
     </header>

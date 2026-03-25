@@ -81,7 +81,7 @@ function Hero() {
               boxShadow: "0 0 10px rgba(34, 197, 94, 0.55)",
             }}
           />
-          Open to work · Remote-first
+          Open to work
         </motion.span>
       </motion.div>
 

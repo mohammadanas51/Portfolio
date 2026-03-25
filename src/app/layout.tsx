@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import InitialPageLoader from "@/components/InitialPageLoader";
 import "./globals.css";
 
@@ -63,7 +64,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function () {
+            try {
+              var t = localStorage.getItem('theme');
+              document.documentElement.dataset.theme = (t === 'light' || t === 'dark') ? t : 'dark';
+            } catch (e) {
+              document.documentElement.dataset.theme = 'dark';
+            }
+          })();`}
+        </Script>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <InitialPageLoader />

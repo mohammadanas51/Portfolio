@@ -69,10 +69,11 @@ function ProjectCard({ title, summary, descriptionPoints, githubUrl, liveUrl, ta
                   fontSize: "0.65rem",
                   padding: "2px 6px",
                   borderRadius: "4px",
-                  background: "#1a1a1a",
+                  background: "var(--tag-bg)",
                   border: "1px solid var(--border)",
                   color: "var(--muted)",
                   fontFamily: "var(--font-geist-mono)",
+                  transition: "background 220ms ease, color 220ms ease, border-color 220ms ease",
                 }}
               >
                 {tag}
