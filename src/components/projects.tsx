@@ -29,7 +29,7 @@ const projects = [
     ],
     githubUrl: "https://github.com/mohammadanas51/woxro-restaurant-task",
     liveUrl: "https://woxro-restaurant-task-vercel.vercel.app/",
-    tags: ["MERN", "Admin Panel", "Customer"],
+    tags: ["MERN", "Admin Panel", "Dynamic"],
   },
   {
     title: "CommitPay",
