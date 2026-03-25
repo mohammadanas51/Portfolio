@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
+import Internships from "@/components/Internships";
 import Projects from "@/components/projects";
 import OpenSource from "@/components/OpenSource";
 import Footer from "@/components/Footer";
@@ -12,6 +13,7 @@ export default function Home() {
       <main style={{ maxWidth: "768px", margin: "0 auto", padding: "0 24px 96px" }}>
         <Hero />
         <Skills />
+        <Internships />
         <Projects />
         <OpenSource />
       </main>

@@ -8,6 +8,30 @@ import { useEntranceReady } from "@/lib/useEntranceReady";
 
 const projects = [
   {
+    title: "Retrieval-Augmented Generation (RAG)",
+    summary: "AI-powered document Q&A app using RAG for accurate, context-aware answers.",
+    descriptionPoints: [
+      "Built a full-stack RAG system enabling users to upload documents and get context-aware AI answers.",
+      "Used Groq's and HuggingFace RAG API to build a context-aware AI chatbot that can answer questions based on the uploaded documents.",
+      "Implemented embedding-based retrieval with semantic search for accurate and relevant responses.",
+      "Designed a modern AI dashboard for document management, querying, and real-time results.",
+    ],
+    githubUrl: "https://github.com/mohammadanas51/RAG-Backend",
+    liveUrl: "https://rag-frontend-jade.vercel.app/",
+    tags: ["RAG", "LLM", "MERN"],
+  },
+  {
+    title: "Restaurant Management System",
+    summary: "Full-stack restaurant management system for a local restaurant.",
+    descriptionPoints: [
+      "Built a full-stack restaurant management system for a local restaurant.",
+      "Developed using React, Node.js, Express, and MongoDB. Includes role-based access control for admins and customers",
+    ],
+    githubUrl: "https://github.com/mohammadanas51/woxro-restaurant-task",
+    liveUrl: "https://woxro-restaurant-task-vercel.vercel.app/",
+    tags: ["MERN", "Admin Panel", "Customer"],
+  },
+  {
     title: "CommitPay",
     summary: "Bootstrapped SaaS connecting open-source maintainers with beginner devs through paid issues.",
     descriptionPoints: [
